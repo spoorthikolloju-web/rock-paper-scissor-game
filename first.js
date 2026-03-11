@@ -71,4 +71,6 @@ playAgainBtn.addEventListener("click", ()=>{
     msg.innerText="Play your move !";
     msg.style.backgroundColor="#081b31";
     playAgainBtn.style.display="none";
+    userScore.innerText="0";
+    compScore.innerText="0";
 });
