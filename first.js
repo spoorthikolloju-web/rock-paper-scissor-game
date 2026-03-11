@@ -5,6 +5,7 @@ let user_score=0;
 let comp_score=0;
 
 const msg=document.querySelector("#msg");
+const playAgainBtn = document.querySelector("#playAgain");
 
 const choices=document.querySelectorAll(".choice");
 console.log(choices);
@@ -38,6 +39,10 @@ const showWinner=(userWin,userChoice,compChoice)=>{
         console.log("computer wins");
     }
 }
+const resetGame = () => {
+    msg.innerText = "Play your move";
+    msg.style.backgroundColor = "#081b31";
+};
 choices.forEach((choice)=>{
     choice.addEventListener("click",()=>{
            const userChoice=choice.getAttribute("Id");
@@ -45,6 +50,7 @@ choices.forEach((choice)=>{
            playGame(userChoice);
     });
 });
+playAgainBtn.addEventListener("click", resetGame);
 
 const playGame=(userChoice=>{
     const compChoice=genCompChoice();
