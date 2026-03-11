@@ -21,6 +21,7 @@ const drawGame=()=>{
     console.log("It was a draw");
     msg.style.backgroundColor="#081b31";
     msg.innerText="Game was a Draw! Have another go?";
+    playAgainBtn.style.display = "block";
 }
 
 const showWinner=(userWin,userChoice,compChoice)=>{
@@ -38,11 +39,8 @@ const showWinner=(userWin,userChoice,compChoice)=>{
         msg.style.backgroundColor="red";
         console.log("computer wins");
     }
+    playAgainBtn.style.display = "block";
 }
-const resetGame = () => {
-    msg.innerText = "Play your move";
-    msg.style.backgroundColor = "#081b31";
-};
 choices.forEach((choice)=>{
     choice.addEventListener("click",()=>{
            const userChoice=choice.getAttribute("Id");
@@ -50,7 +48,6 @@ choices.forEach((choice)=>{
            playGame(userChoice);
     });
 });
-playAgainBtn.addEventListener("click", resetGame);
 
 const playGame=(userChoice=>{
     const compChoice=genCompChoice();
@@ -60,7 +57,7 @@ const playGame=(userChoice=>{
     else{
         userWin=true;
         if(userChoice==="paper"){
-            userwin=compChoice=="scissor"?false : true;
+            userWin=compChoice=="scissor"?false : true;
         }
         else if (userChoice==="rock"){
             userWin=compChoice==="paper"? false : true;}
@@ -70,3 +67,8 @@ const playGame=(userChoice=>{
         showWinner(userWin,userChoice,compChoice);
     }
 })
+playAgainBtn.addEventListener("click", ()=>{
+    msg.innerText="Play your move !";
+    msg.style.backgroundColor="#081b31";
+    playAgainBtn.style.display="none";
+});
