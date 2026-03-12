@@ -55,7 +55,7 @@ const playGame=(userChoice=>{
           drawGame();
     }
     else{
-        userWin=true;
+        let userWin=true;
         if(userChoice==="paper"){
             userWin=compChoice=="scissor"?false : true;
         }
