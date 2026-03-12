@@ -73,4 +73,6 @@ playAgainBtn.addEventListener("click", ()=>{
     playAgainBtn.style.display="none";
     userScore.innerText="0";
     compScore.innerText="0";
+    user_score=0;
+    comp_score=0;
 });
